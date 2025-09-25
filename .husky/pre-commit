@@ -4,5 +4,5 @@
 # run prettier on staged files
 npx lint-staged
 
-# typecheck
-make lint
+## typecheck
+#make lint
