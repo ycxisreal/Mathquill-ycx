@@ -204,6 +204,54 @@ LatexCmds.dot = () => {
     )
   );
 };
+LatexCmds.ycx = () => new Style('\\ycx', 'span', { class: 'mq-ycx' });
+// 外层 dslblk 容器
+LatexCmds.dslblk = class extends MathCommand {
+  ctrlSeq = '\\dslblk';
+  domView = new DOMView(1, (blocks) =>
+    h('span', { class: 'mq-dslblk' }, [
+      h.block('span', { class: 'mq-dslblk-inner' }, blocks[0]),
+    ])
+  );
+};
+
+// 内层：真正显示的填空位
+LatexCmds.dslblkdisplay = class extends MathCommand {
+  ctrlSeq = '\\dslblkdisplay';
+  domView = new DOMView(1, (blocks) =>
+    h('span', { class: 'mq-dslblk-display' }, [
+      h.block('span', { class: 'mq-dslblk-inner' }, blocks[0]),
+    ])
+  );
+};
+//index标识
+LatexCmds.dslblkidx = class extends MathCommand {
+  ctrlSeq = '\\dslblkidx';
+  domView = new DOMView(1, (blocks) =>
+    h.block('span', { class: 'mq-dslblk-idx' }, blocks[0])
+  );
+};
+LatexCmds.dslblklen = class extends MathCommand {
+  ctrlSeq = '\\dslblklen';
+  domView = new DOMView(1, (blocks) =>
+    h.block('span', { class: 'mq-dslblk-len' }, blocks[0])
+  );
+};
+LatexCmds.dslblkstyle = class extends MathCommand {
+  ctrlSeq = '\\dslblkstyle';
+  domView = new DOMView(1, (blocks) =>
+    h.block('span', { class: 'mq-dslblk-style' }, blocks[0])
+  );
+};
+// 其他辅助参数（隐藏）
+// ['dslblkidx', 'dslblklen', 'dslblkstyle'].forEach((cmd) => {
+//   LatexCmds[cmd] = class extends MathCommand {
+//     ctrlSeq = '\\' + cmd;
+//     domView = new DOMView(0, (blocks) =>
+//       h.block('span', { class: 'mq-dslblk-hidden' }, blocks[0])
+//     );
+//   };
+// });
 
 // `\textcolor{color}{math}` will apply a color to the given math content, where
 // `color` is any valid CSS Color Value (see [SitePoint docs][] (recommended),

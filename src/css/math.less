@@ -458,4 +458,53 @@
       -ms-filter: "FlipH";
     }
   }
+  .mq-ycx{
+    min-width: 1em;
+    border: 2px solid #55aa88;
+    background-color: #709AC0;
+  }
 }
+// 填空位
+// 外层整体容器
+.mq-dslblk {
+  display: inline-flex;
+  align-items: flex-end;
+  margin: 2px;
+  padding: 2px;
+  border: 1px dashed #aaa;
+  border-radius: 4px;
+  background: #fafafa;
+}
+// 填空位公式（重点显示）
+.mq-dslblk-display {
+  display: inline-block;
+}
+.mq-dslblk-idx {
+  &:before {
+    content: ' id-';
+  }
+  padding-top: 0.7em;
+  font-size: 0.7em;
+  color: #353535;
+}
+.mq-dslblk-len{
+  &:before {
+    content: ' len-';
+  }
+  padding-top: 0.7em;
+  font-size: 0.7em;
+  color: #353535;
+}
+.mq-dslblk-style{
+  &:before {
+    content: ' style-';
+  }
+  padding-top: 0.7em;
+  font-size: 0.7em;
+  color: #353535;
+}
+// 隐藏的参数命令
+.mq-dslblk-hidden {
+  display: none;
+}
+
