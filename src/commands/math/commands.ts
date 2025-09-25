@@ -204,7 +204,6 @@ LatexCmds.dot = () => {
     )
   );
 };
-LatexCmds.ycx = () => new Style('\\ycx', 'span', { class: 'mq-ycx' });
 // 外层 dslblk 容器
 LatexCmds.dslblk = class extends MathCommand {
   ctrlSeq = '\\dslblk';
