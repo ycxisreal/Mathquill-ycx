@@ -64,7 +64,9 @@ SOURCES_BASIC = \
 
 CSS_DIR = $(SRC_DIR)/css
 CSS_MAIN = $(CSS_DIR)/main.less
-CSS_SOURCES = $(shell find $(CSS_DIR) -name '*.less')
+CSS_SOURCES = $(wildcard $(CSS_DIR)/*.less) \
+              $(wildcard $(CSS_DIR)/*/*.less) \
+              $(wildcard $(CSS_DIR)/*/*/*.less)
 
 FONT_SOURCE = $(SRC_DIR)/fonts
 FONT_TARGET = $(BUILD_DIR)/fonts
